@@ -17,13 +17,13 @@
 <?php
 require_once './vendor/autoload.php';
 require_once 'model/login.php';
-// error_reporting(0);
+error_reporting(0);
 session_start();
 dropClient(isset($_GET['logout']));
 $client = getClient();
 $service = new Google_Service_Sheets($client);
 $spreadsheetId = '1IA_4q1_oHL3PQAeq1E9wcCKdPZyj5cznxBeMNMCsdVo';
-$range = 'A1:BC30';
+$range = '\'2018\'!A1:BE28';
 $response = $service->spreadsheets_values->get($spreadsheetId, $range);
 $sheet = $response->getValues();
 
